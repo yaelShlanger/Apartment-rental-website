@@ -1,0 +1,11 @@
+#flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px; /* מרווח בין הכרטיסיות */
+    justify-content: center; /* ממרכז את הכרטיסיות במידת הצורך */
+}
+/* #body{
+    background-image: url(../image/cvhr\ ntus.jpg);
+} */
+
+

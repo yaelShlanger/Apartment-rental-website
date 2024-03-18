@@ -1,0 +1,303 @@
+/* -------------------------------------1------------------------------ */
+
+/* html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 4.5rem;
+    margin-bottom: 4.5rem;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  background-color: #ccc;
+}
+
+.nav-link:hover {
+  transition: all 0.4s;
+}
+
+.nav-link-collapse:after {
+  float: right;
+  content: '\f067';
+  font-family: 'FontAwesome';
+}
+
+.nav-link-show:after {
+  float: right;
+  content: '\f068';
+  font-family: 'FontAwesome';
+}
+
+.nav-item ul.nav-second-level {
+  padding-left: 0;
+}
+
+.nav-item ul.nav-second-level > .nav-item {
+  padding-left: 20px;
+}
+
+@media (min-width: 992px) {
+  .sidenav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: calc(100vh - 3.5rem);
+    margin-top: 3.5rem;
+    background: #343a40;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar-expand-lg .sidenav {
+    flex-direction: column;
+  }
+
+  .content-wrapper {
+    margin-left: 230px;
+  }
+
+  .footer {
+    width: calc(100% - 230px);
+    margin-left: 230px;
+  }
+} */
+/* Notes on "How to use" at the end of code */
+
+
+/* --------------------------------------------------------2------------------------------------------- */
+
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"); */
+
+/* CSS RESET */
+/* * { box-sizing: border-box; }
+
+body { padding: 0; margin: 0; font-family: "Inter", sans-serif;  overflow-x: hidden; background-color: #080202; color: #fff; width: 70%; margin: 0 auto; }
+
+h1, h2, h3, h4, h5, h6, p, hr { margin: 0; padding: 0; }
+p { margin: 20px 0; font-size: 16px; line-height: 2; font-weight: 200; }
+img { display: block; padding: 0; margin: 0; } */
+
+/* >>> FAQ STYLES <<< */
+/* .faq_container { border-bottom: 2px solid #ddd; }
+.faq_question {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.answercont {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.answer {
+  padding: 0 10px 20px;
+  line-height: 1.5rem;
+}
+.fqa_headline_container h2 span { font-weight: 700; }
+.faq_question-text h3 { font-size: 22px; }
+
+.icon.active {
+  background: transparent;
+  border: 2px solid #fff;
+}
+.icon:hover { cursor: pointer; }
+.icon-shape { position: relative; width: 50px; height: 50px; }
+.icon .icon-shape::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 4px;
+  background: #fff;
+  border-radius: 3px;
+  transition: all 0.5s ease;
+}
+.icon .icon-shape::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 30px;
+  background: #fff;
+  border-radius: 3px;
+  transition: all 0.5s ease;
+}
+.icon .icon-shape.active::before {
+  transform: translate(-50%, -50%) rotate(180deg);
+  transition: all 0.5s ease;
+}
+.icon .icon-shape.active::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: all 0.5s ease;
+} */
+
+/* -------------------------------------------3------------------------------------------ */
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: rgba(128, 128, 128, 0.1);
+  display: grid;
+  place-content: center;
+  margin-top: 40px;
+  .accordion {
+    width: 400px;
+
+    .accordion-list {
+      .accordion-item {
+        list-style: none;
+        position: relative;
+        height: max-content;
+        input[type="checkbox"] {
+          display: none;
+        }
+        label {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px;
+          background: #ffffff;
+          cursor: pointer;
+          position: relative;
+          z-index: 2;
+          .opened {
+            display: none;
+          }
+          .closed {
+            display: block;
+          }
+        }
+
+        .content {
+          width: 100%;
+          transition: all 0.3s ease;
+          opacity: 0;
+          pointer-events: none;
+          padding: 8px 16px;
+          position: relative;
+          z-index: 1;
+          padding-left: 20px;
+          max-height: 0;
+          margin-top: -12px;
+          &.show {
+            margin-top: 0;
+            max-height: 200px;
+            opacity: 1;
+            pointer-events: all;
+          }
+          p {
+            margin-bottom: 8px;
+            color: gray;
+          }
+        }
+
+        input[type="checkbox"]:checked ~ label .opened {
+          display: block;
+        }
+        input[type="checkbox"]:checked ~ label .closed {
+          display: none;
+        }
+      }
+    }
+  }
+} */
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: rgba(128, 128, 128, 0.1);
+  display: grid;
+  place-content: center;
+  margin-top: 40px;
+  .accordion {
+    width: 400px;
+
+    .accordion-list {
+      .accordion-item {
+        list-style: none;
+        position: relative;
+        height: max-content;
+        input[type="checkbox"] {
+          display: none;
+        }
+        label {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px;
+          background: #ffffff;
+          cursor: pointer;
+          position: relative;
+          z-index: 2;
+          .opened {
+            display: none;
+          }
+          .closed {
+            display: block;
+          }
+        }
+
+        .content {
+          width: 100%;
+          transition: all 0.3s ease;
+          opacity: 0;
+          pointer-events: none;
+          padding: 8px 16px;
+          position: relative;
+          z-index: 1;
+          padding-left: 20px;
+          max-height: 0;
+          margin-top: -12px;
+          &.show {
+            margin-top: 0;
+            max-height: 200px;
+            opacity: 1;
+            pointer-events: all;
+          }
+          p {
+            margin-bottom: 8px;
+            color: gray;
+          }
+        }
+
+        input[type="checkbox"]:checked ~ label .opened {
+          display: block;
+        }
+        input[type="checkbox"]:checked ~ label .closed {
+          display: none;
+        }
+      }
+    }
+  }
+} */
